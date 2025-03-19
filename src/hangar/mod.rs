@@ -296,7 +296,6 @@ pub struct VersionsFilter {
     pub offset: i64,
     pub channel: Option<String>,
     pub platform: Option<Platform>,
-    pub platform_version: Option<String>,
 }
 
 impl Default for VersionsFilter {
@@ -306,7 +305,6 @@ impl Default for VersionsFilter {
             offset: 0,
             channel: None,
             platform: None,
-            platform_version: None,
         }
     }
 }
