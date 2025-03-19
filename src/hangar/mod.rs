@@ -291,14 +291,14 @@ pub enum ReviewState {
 ///
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
-pub struct VersionsFilter {
+pub struct PlatformFilter {
     pub limit: i64,
     pub offset: i64,
     pub channel: Option<String>,
     pub platform: Option<Platform>,
 }
 
-impl Default for VersionsFilter {
+impl Default for PlatformFilter {
     fn default() -> Self {
         Self {
             limit: 25,
@@ -318,7 +318,7 @@ pub struct ProjectVersionsResponse {
 pub async fn fetch_project_versions(
     http_client: &reqwest::Client,
     id: &str,
-    filter: Option<VersionsFilter>,
+    filter: Option<PlatformFilter>,
 ) -> Result<ProjectVersionsResponse, HangarError> {
     let filter = filter.unwrap_or_default();
 
