@@ -104,8 +104,8 @@ pub struct PurpurBuild {
     pub version: String,
     pub build: String,
     pub result: String,
-    pub timestamp: i64,
-    pub duration: i64,
+    pub timestamp: u64,
+    pub duration: u64,
     pub commits: Vec<PurpurCommit>,
     pub md5: String,
 }
@@ -122,7 +122,7 @@ pub struct PurpurCommit {
     pub email: String,
     pub description: String,
     pub hash: String,
-    pub timestamp: i64,
+    pub timestamp: u64,
 }
 
 /// Fetch a list of purpurmc versions

@@ -28,19 +28,19 @@ impl ToString for Namespace {
 #[derive(Debug, Serialize, Deserialize, Default, Clone)]
 #[serde(rename_all = "camelCase")]
 pub struct ProjectStats {
-    pub views: i64,
-    pub downloads: i64,
-    pub recent_views: i64,
-    pub recent_downloads: i64,
-    pub stars: i64,
-    pub watchers: i64,
+    pub views: u64,
+    pub downloads: u64,
+    pub recent_views: u64,
+    pub recent_downloads: u64,
+    pub stars: u64,
+    pub watchers: u64,
 }
 
 #[derive(Debug, Serialize, Deserialize, Default, Clone)]
 #[serde(rename_all = "camelCase")]
 pub struct VersionStats {
-    pub total_downloads: i64,
-    pub platform_downloads: HashMap<Platform, i64>,
+    pub total_downloads: u64,
+    pub platform_downloads: HashMap<Platform, u64>,
 }
 
 #[derive(Debug, Serialize, Deserialize, Default, Clone)]
@@ -115,7 +115,7 @@ pub struct ProjectLicense {
 #[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "camelCase")]
 pub struct LinkSection {
-    pub id: i64,
+    pub id: u64,
     pub link_type: LinkType,
     pub title: String,
     pub links: Vec<Link>,
@@ -130,7 +130,7 @@ pub enum LinkType {
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct Link {
-    pub id: i64,
+    pub id: u64,
     pub name: String,
     pub url: String,
 }
@@ -150,9 +150,9 @@ pub async fn fetch_project(
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct Pagination {
-    pub limit: i64,
-    pub offset: i64,
-    pub count: i64,
+    pub limit: u64,
+    pub offset: u64,
+    pub count: u64,
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
@@ -247,7 +247,7 @@ impl PlatformVersionDownload {
 #[serde(rename_all = "camelCase")]
 pub struct FileInfo {
     pub name: String,
-    pub size_bytes: i64,
+    pub size_bytes: u64,
     pub sha256_hash: String,
 }
 
@@ -292,8 +292,8 @@ pub enum ReviewState {
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct PlatformFilter {
-    pub limit: i64,
-    pub offset: i64,
+    pub limit: u64,
+    pub offset: u64,
     pub channel: Option<String>,
     pub platform: Option<Platform>,
 }
